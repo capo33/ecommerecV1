@@ -1,4 +1,4 @@
-import { FeatureCard, Hero, Products ,StarCard} from "../../components";
+import { FeatureCard, Hero, Products ,StarCard, Footer} from "../../components";
 
 const Home = () => {
   return (
@@ -15,6 +15,7 @@ const Home = () => {
       <Products />
       <FeatureCard />
       <StarCard />
+       <Footer />
     </>
   );
 };

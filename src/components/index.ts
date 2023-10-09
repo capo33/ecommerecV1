@@ -3,3 +3,4 @@ export { default as Hero } from "./Hero/Hero";
 export { default as Products } from "./Products/Products";
 export { default as FeatureCard } from "./FeatureCard/FeatureCard";
 export { default as StarCard } from "./StarCard/StarCard";
+export { default as Footer } from "./Footer/Footer";
