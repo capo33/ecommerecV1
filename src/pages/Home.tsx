@@ -1,14 +1,8 @@
 import { useEffect } from "react";
 
-import {
-  FeatureCard,
-  Hero,
-  Products,
-  StarCard,
-  Footer,
-} from "../../components";
-import { useAppDispatch, useAppSelector } from "../../redux/app/store";
-import { getProducts } from "../../redux/features/productSlice";
+import { FeatureCard, Hero, Products, StarCard, Footer } from "../components";
+import { useAppDispatch, useAppSelector } from "../redux/app/store";
+import { getProducts } from "../redux/features/productSlice";
 
 const Home = () => {
   const { isLoading, products } = useAppSelector((state) => state.product);
@@ -19,7 +13,6 @@ const Home = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-
 
   return (
     <>
@@ -32,13 +25,6 @@ const Home = () => {
           Most Popular Products
         </h1>
       </div>
-      {/* {products.length > 0 ? (
-        <Products products={products} />
-      ) : (
-        <div className='flex justify-center items-center h-screen'>
-          <h1 className='text-3xl'>Loading...</h1>
-        </div>
-      )} */}
 
       {isLoading ? (
         <div className='flex justify-center items-center h-screen'>
