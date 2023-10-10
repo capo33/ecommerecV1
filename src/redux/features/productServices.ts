@@ -2,12 +2,21 @@ import axios from "axios";
 
 // Get products
 const getProducts = async () => {
-  const response = await axios.get("https://fakestoreapi.com/products?limit=10");
+  const response = await axios.get(
+    "https://fakestoreapi.com/products? limit=10"
+  );
   return response.data;
-}
+};
+
+// Get product by id
+const getProductById = async (id: string) => {
+  const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+  return response.data;
+};
 
 const productServices = {
-  getProducts
-}
+  getProducts,
+  getProductById,
+};
 
 export default productServices;
