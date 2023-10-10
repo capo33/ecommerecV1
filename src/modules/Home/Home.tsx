@@ -20,6 +20,7 @@ const Home = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
+
   return (
     <>
       <Hero />
@@ -31,12 +32,20 @@ const Home = () => {
           Most Popular Products
         </h1>
       </div>
-      {products.length > 0 ? (
+      {/* {products.length > 0 ? (
         <Products products={products} />
       ) : (
         <div className='flex justify-center items-center h-screen'>
           <h1 className='text-3xl'>Loading...</h1>
         </div>
+      )} */}
+
+      {isLoading ? (
+        <div className='flex justify-center items-center h-screen'>
+          <h1 className='text-3xl'>Loading...</h1>
+        </div>
+      ) : (
+        <Products products={products} />
       )}
       {/* <Products />
       <FeatureCard />
