@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { FeatureCard, Hero, Products, StarCard, Footer } from "../components";
+import { FeatureCard, Hero, ProductList, StarCard, Footer } from "../components";
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
 import { getProducts } from "../redux/features/productSlice";
 
@@ -26,17 +26,10 @@ const Home = () => {
         </h1>
       </div>
 
-      {isLoading ? (
-        <div className='flex justify-center items-center h-screen'>
-          <h1 className='text-3xl'>Loading...</h1>
-        </div>
-      ) : (
-        <Products products={products} />
-      )}
-      {/* <Products />
-      <FeatureCard />
+      <ProductList products={products} isLoading={isLoading} />
+       <FeatureCard />
       <StarCard />
-      <Footer /> */}
+      <Footer />
     </>
   );
 };
