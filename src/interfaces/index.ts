@@ -2,11 +2,11 @@ export interface IProduct {
   id: string;
   category: string;
   description: string;
-  image: string;
+  discountPercentage: number;
+  thumbnail: string;
   price: number;
   title: string;
-  rating: {
-    count: number;
-    rate: number;
-  };
+  rating: number;
+  stock: number;
+  brand: string;
 }

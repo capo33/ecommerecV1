@@ -15,6 +15,7 @@ const ProductDetails = () => {
   useEffect(() => {
     dispatch(getProductById(id as string));
   }, [dispatch, id]);
+  
   return (
     <section className='text-gray-600 body-font overflow-hidden'>
       <div className='container px-5 py-24 mx-auto'>
@@ -22,7 +23,7 @@ const ProductDetails = () => {
           <img
             alt={product?.title}
             className='lg:w-1/2 w-full lg:h-auto max-h-[600px] h-64 object-contain object-center rounded'
-            src={product?.image}
+            src={product?.thumbnail}
           />
           <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
             <h2 className='text-sm title-font text-gray-500 tracking-widest uppercase'>

@@ -28,7 +28,7 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
                   <img
                     alt='ecommerce'
                     className='object-contain object-center w-full h-full block'
-                    src={product.image}
+                    src={product.thumbnail}
                   />
                 </span>
                 <div className='mt-4'>
@@ -38,7 +38,7 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
                   <h2 className='text-gray-900 title-font text-xl font-medium'>
                     {product.title}
                   </h2>
-                  <p className='mt-1 text-md font-semibold'>{product.price}</p>
+                  <p className='mt-1 text-md font-semibold'>{product.price}€</p>
                 </div>
               </Link>
             ))}

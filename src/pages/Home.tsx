@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 
-import { FeatureCard, Hero, ProductList, StarCard, Footer } from "../components";
+import {
+  FeatureCard,
+  Hero,
+  ProductList,
+  StarCard,
+  Footer,
+} from "../components";
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
 import { getProducts } from "../redux/features/productSlice";
 
@@ -27,7 +33,7 @@ const Home = () => {
       </div>
 
       <ProductList products={products} isLoading={isLoading} />
-       <FeatureCard />
+      <FeatureCard />
       <StarCard />
       <Footer />
     </>
