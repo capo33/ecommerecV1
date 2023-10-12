@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IProduct } from "../../interfaces";
 
 type ProductsProp = {
-  products: IProduct[];
+  products: IProduct[] | undefined
   isLoading: boolean;
 };
 

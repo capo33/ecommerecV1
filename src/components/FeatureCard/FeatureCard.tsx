@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { ICategory } from "../../interfaces";
 import { TitleText } from "..";
@@ -8,13 +8,16 @@ interface IFeatureCardProps {
 }
 
 const FeatureCard = ({ cards }: IFeatureCardProps) => {
+  const { search } = useLocation();
+
+  const redirect = search ? search.split("=")[1] : "/categories/";
+
   return (
     <section className='text-gray-600 body-font'>
       <div className='container px-5 py-24 mx-auto'>
         <div className='flex flex-col text-center w-full mb-20'>
-        <TitleText text1='Categoties' text2='Browse by our top categories' />
+          <TitleText text1='Categoties' text2='Browse by our top categories' />
         </div>
-
         <div className='flex flex-wrap -m-4'>
           {cards?.map((card, index) => (
             <div className='p-4 md:w-1/3' key={index}>
@@ -38,9 +41,8 @@ const FeatureCard = ({ cards }: IFeatureCardProps) => {
                   </h2>
                 </div>
                 <div className='flex-grow'>
-                  <p className='leading-relaxed text-base'></p>
                   <Link
-                    to={`categories/${card}`}
+                    to={`${redirect}${card}`}
                     className='mt-3 text-indigo-500 inline-flex items-center cursor-pointer hover:text-gray-900'
                   >
                     Learn More
