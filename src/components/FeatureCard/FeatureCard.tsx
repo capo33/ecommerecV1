@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { ICategory } from "../../interfaces";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/app/store";
@@ -31,7 +33,7 @@ const FeatureCard = ({ cards }: IFeatureCardProps) => {
         </div>
         <div className='flex flex-wrap -m-4'>
           {categories?.map((card, index) => (
-            <div className='p-4 md:w-1/3 cursor-pointer' key={index}>
+            <div className='p-4 md:w-1/3' key={index}>
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col'>
                 <div className='flex items-center mb-3'>
                   <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0'>
@@ -53,7 +55,10 @@ const FeatureCard = ({ cards }: IFeatureCardProps) => {
                 </div>
                 <div className='flex-grow'>
                   <p className='leading-relaxed text-base'></p>
-                  <a className='mt-3 text-indigo-500 inline-flex items-center'>
+                  <Link
+                    to={`categories/${card}`}
+                    className='mt-3 text-indigo-500 inline-flex items-center cursor-pointer hover:text-gray-900'
+                  >
                     Learn More
                     <svg
                       fill='none'
@@ -66,7 +71,7 @@ const FeatureCard = ({ cards }: IFeatureCardProps) => {
                     >
                       <path d='M5 12h14M12 5l7 7-7 7' />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
