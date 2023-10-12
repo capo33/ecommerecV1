@@ -1,28 +1,24 @@
 import { useEffect } from "react";
 
-import {
-  FeatureCard,
-  Hero,
-  ProductList,
-  StarCard,
-  Footer,
-} from "../components";
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
-import { getProducts } from "../redux/features/productSlice";
+import { getlimitProducts } from "../redux/features/product/productSlice";
+import { Hero, ProductList, StarCard, Footer, Categories } from "../components";
 
 const Home = () => {
-  const { isLoading, products } = useAppSelector((state) => state.product);
+  const { isLoading, limitedproducts } = useAppSelector(
+    (state) => state.product
+  );
 
   const dispatch = useAppDispatch();
-  console.log(products);
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getlimitProducts());
   }, [dispatch]);
 
   return (
     <>
       <Hero />
+      <Categories />
       <div className='flex flex-col text-center w-full mt-20'>
         <h2 className='text-xs text-indigo-500 tracking-widest font-medium title-font mb-1'>
           Products
@@ -32,8 +28,7 @@ const Home = () => {
         </h1>
       </div>
 
-      <ProductList products={products} isLoading={isLoading} />
-      <FeatureCard />
+      <ProductList products={limitedproducts} isLoading={isLoading} />
       <StarCard />
       <Footer />
     </>

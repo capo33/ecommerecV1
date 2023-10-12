@@ -2,10 +2,11 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 
 import productServices from "./productServices";
-import { IProduct } from "../../interfaces";
+import { IProduct } from "../../../interfaces";
 
 interface IProductState {
-  products: IProduct[];
+  limitedproducts: IProduct[];
+  allProducts: IProduct[];
   product: IProduct | null;
   isError: boolean;
   isLoading: boolean;
@@ -14,7 +15,8 @@ interface IProductState {
 }
 
 const initialState: IProductState = {
-  products: [],
+  limitedproducts: [],
+  allProducts: [],
   product: null,
   isLoading: false,
   isError: false,
@@ -23,12 +25,25 @@ const initialState: IProductState = {
 };
 
 // Get a list of Products
-
-export const getProducts = createAsyncThunk(
-  "product/getProducts",
+export const getlimitProducts = createAsyncThunk(
+  "product/getlimitProducts",
   async (_, thunkAPI) => {
     try {
-      const response = await productServices.getProducts();
+      const response = await productServices.getlimitProducts();
+      return response;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      return thunkAPI.rejectWithValue(axiosError.response?.data);
+    }
+  }
+);
+
+// Get a list of Products
+export const getAllProducts = createAsyncThunk(
+  "product/getAllProducts",
+  async (_, thunkAPI) => {
+    try {
+      const response = await productServices.getAllProducts();
       return response;
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -57,18 +72,35 @@ const productSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Get a products
-    builder.addCase(getProducts.pending, (state) => {
+    builder.addCase(getlimitProducts.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(
-      getProducts.fulfilled,
+      getlimitProducts.fulfilled,
       (state, { payload }: PayloadAction<IProduct[]>) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.products = payload;
+        state.limitedproducts = payload;
       }
     );
-    builder.addCase(getProducts.rejected, (state) => {
+    builder.addCase(getlimitProducts.rejected, (state) => {
+      state.isLoading = false;
+      state.isError = true;
+    });
+
+    // Get all products
+    builder.addCase(getAllProducts.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      getAllProducts.fulfilled,
+      (state, { payload }: PayloadAction<IProduct[]>) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.allProducts = payload;
+      }
+    );
+    builder.addCase(getAllProducts.rejected, (state) => {
       state.isLoading = false;
       state.isError = true;
     });

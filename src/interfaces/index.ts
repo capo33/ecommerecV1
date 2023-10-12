@@ -11,3 +11,6 @@ export interface IProduct {
   stock: number;
   brand: string;
 }
+
+// define ICategory to array of string
+export interface ICategory extends Array<string> {}

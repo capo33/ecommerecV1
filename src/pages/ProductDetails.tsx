@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
-import { getProductById } from "../redux/features/productSlice";
+import { getProductById } from "../redux/features/product/productSlice";
 import { StarRatings } from "../components";
 
 const ProductDetails = () => {
@@ -36,12 +36,11 @@ const ProductDetails = () => {
             <div className='flex mb-4'>
               <span className='flex items-center'>
                 <StarRatings rating={product?.rating as number} />
-                 
+
                 <span className='text-gray-600 ml-3'>
                   {product?.rating} <span className='text-gray-400'>/</span> 5
                 </span>
               </span>
-             
             </div>
             <p className='leading-relaxed'>{product?.description}</p>
             <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5'>
@@ -53,9 +52,9 @@ const ProductDetails = () => {
               </div>
               <div className='flex ml-6 items-center'>
                 <span className='mr-3'>
-                {product?.stock} <span className='text-gray-400'>in stock</span>
+                  {product?.stock}{" "}
+                  <span className='text-gray-400'>in stock</span>
                 </span>
-                
               </div>
             </div>
             <div className='flex justify-between items-center'>
