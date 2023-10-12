@@ -14,3 +14,10 @@ export interface IProduct {
 
 // define ICategory to array of string
 export interface ICategory extends Array<string> {}
+
+export interface ICategoryDetails {
+  limit: number;
+  products: IProduct[];
+  skip: number;
+  total: number;
+}

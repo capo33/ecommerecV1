@@ -12,6 +12,7 @@ const Products = () => {
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
+  
   return (
     <div>
       <Categories />
