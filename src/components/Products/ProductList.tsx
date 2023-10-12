@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { IProduct } from "../../interfaces";
 
 type ProductsProp = {
-  products: IProduct[] | undefined
+  products: IProduct[] | undefined;
   isLoading: boolean;
 };
 
 const ProductList = ({ products, isLoading }: ProductsProp) => {
+  const { search } = useLocation();
+  const redirect = search ? search.split("=")[1] : "/products/";
+
   return (
     <section className='text-gray-600 body-font'>
       {isLoading ? (
@@ -20,7 +23,7 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
           {products &&
             products.map((product) => (
               <Link
-                to={`products/${product.id}`}
+                to={`${redirect}${product.id}`}
                 className='lg:w-1/4 md:w-1/2 p-4 w-full border border-opacity-50 mb-4 cursor-pointer'
                 key={product.id}
               >

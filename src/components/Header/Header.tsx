@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { navigations } from "../../config";
+import { useAppSelector } from "../../redux/app/store";
 
 const Header = () => {
+  const { cart } = useAppSelector((state) => state.cart);
+
   return (
     <>
       <div className=''>
@@ -131,26 +134,44 @@ const Header = () => {
             <path d='M5 12h14M12 5l7 7-7 7' />
           </svg>
         </button> */}
-          <a
-            href='#'
+          <Link
+            to='/cart'
             className='flex h-10 items-center px-2 rounded-lg border border-gray-200 hover:border-gray-300 focus:outline-none hover:shadow-inner'
           >
-            <svg
-              className='h-6 w-6 leading-none text-gray-300 stroke-current'
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'
-              />
-            </svg>
-            <span className='pl-1 text-gray-500 text-md'>0</span>
-          </a>
+            {cart.length > 0 ? (
+              <svg
+                className='h-6 w-6 leading-none text-green-300 stroke-current'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'
+                />
+              </svg>
+            ) : (
+              <svg
+                className='h-6 w-6 leading-none text-gray-300 stroke-current'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'
+                />
+              </svg>
+            )}
+
+            <span className='pl-1 text-gray-500 text-md'>{cart.length}</span>
+          </Link>
         </div>
       </header>
     </>
