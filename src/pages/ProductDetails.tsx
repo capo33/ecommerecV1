@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
 import { getProductById } from "../redux/features/product/productSlice";
 import { StarRatings } from "../components";
+import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -65,8 +66,15 @@ const ProductDetails = () => {
                 <button className='flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded me-2'>
                   Buy it now
                 </button>
-                <button className='flex ml-auto border border-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded'>
+                <button 
+                onClick={() => dispatch(addToCart(product))}
+                className='flex ml-auto border border-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded'>
                   Add to cart
+                </button>
+                <button 
+                onClick={() => dispatch(removeFromCart(product?.id))}
+                className='flex ml-auto border border-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded'>
+                  Remove from cart
                 </button>
               </div>
               <button className='rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4'>
