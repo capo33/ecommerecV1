@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Categories />
+      <Categories limit={4} />
       <div className='flex flex-col text-center w-full mt-20'>
         <h2 className='text-xs text-indigo-500 tracking-widest font-medium title-font mb-1'>
           Products

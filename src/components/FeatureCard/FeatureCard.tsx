@@ -5,9 +5,10 @@ import { TitleText } from "..";
 
 interface IFeatureCardProps {
   cards: ICategory[];
+  limit?: number;
 }
 
-const FeatureCard = ({ cards }: IFeatureCardProps) => {
+const FeatureCard = ({ cards,limit }: IFeatureCardProps) => {
   const { search } = useLocation();
 
   const redirect = search ? search.split("=")[1] : "/categories/";
@@ -61,7 +62,7 @@ const FeatureCard = ({ cards }: IFeatureCardProps) => {
                 </div>
               </div>
             </div>
-          ))}
+          )).slice(0, limit)}
         </div>
       </div>
     </section>
