@@ -1,38 +1,22 @@
 import { Link } from "react-router-dom";
 
 import { ICategory } from "../../interfaces";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/app/store";
-import { getCategories } from "../../redux/features/category/categorySlice";
+import { TitleText } from "..";
 
 interface IFeatureCardProps {
   cards: ICategory[];
 }
+
 const FeatureCard = ({ cards }: IFeatureCardProps) => {
-  console.log(cards);
-  const { categories } = useAppSelector((state) => state.category);
-
-  console.log(categories);
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-
   return (
     <section className='text-gray-600 body-font'>
       <div className='container px-5 py-24 mx-auto'>
         <div className='flex flex-col text-center w-full mb-20'>
-          <h2 className='text-xs text-indigo-500 tracking-widest font-medium title-font mb-1'>
-            ROOF PARTY POLAROID
-          </h2>
-          <h1 className='sm:text-3xl text-2xl font-medium title-font text-gray-900'>
-            Master Cleanse Reliac Heirloom
-          </h1>
+        <TitleText text1='Categoties' text2='Browse by our top categories' />
         </div>
+
         <div className='flex flex-wrap -m-4'>
-          {categories?.map((card, index) => (
+          {cards?.map((card, index) => (
             <div className='p-4 md:w-1/3' key={index}>
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col'>
                 <div className='flex items-center mb-3'>
