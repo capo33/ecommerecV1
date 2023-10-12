@@ -27,7 +27,6 @@ const Home = () => {
           Most Popular Products
         </h1>
       </div>
-
       <ProductList products={limitedproducts} isLoading={isLoading} />
       <StarCard />
       <Footer />

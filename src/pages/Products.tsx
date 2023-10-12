@@ -1,15 +1,11 @@
 import { useEffect } from "react";
-import { ProductList } from "../components";
-import Categories from "../components/Categories/Categories";
+
+import { ProductList, Categories, TitleText } from "../components";
 import { useAppSelector, useAppDispatch } from "../redux/app/store";
 import { getAllProducts } from "../redux/features/product/productSlice";
 
 const Products = () => {
-  const { allProducts, limitedproducts, isLoading } = useAppSelector(
-    (state) => state.product
-  );
-  console.log('allProducts', allProducts);
-  
+  const { allProducts, isLoading } = useAppSelector((state) => state.product);
 
   const dispatch = useAppDispatch();
 
@@ -19,6 +15,7 @@ const Products = () => {
   return (
     <div>
       <Categories />
+      <TitleText text1='product' text2='All products' />
       <ProductList products={allProducts} isLoading={isLoading} />
     </div>
   );
