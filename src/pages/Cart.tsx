@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 import {
+  removeFromCart,
   decrementQuantity,
   incrementQuantity,
-  removeFromCart,
+  clearCart,
 } from "../redux/features/cart/cartSlice";
 import { useAppSelector, useAppDispatch } from "../redux/app/store";
 
@@ -10,22 +13,44 @@ const Cart = () => {
 
   const dispatch = useAppDispatch();
 
+  // Increment quantity
   const handleIncrementQuantity = (id: string) => {
     dispatch(incrementQuantity(id));
   };
 
+  // Decrement quantity
   const handleDecrementQuantity = (id: string) => {
     dispatch(decrementQuantity(id));
   };
 
+  // Get cart count
+  const getCartCount = () => {
+    return cart.reduce((qty, item) => Number(item.quantity) + qty, 0);
+  };
+
+  // Get cart total
+  const getCartSubTotal = () => {
+    return cart
+      .reduce((price, item) => price + item.price * item.quantity, 0)
+      .toFixed(2);
+  };
+
+  // Handle checkout
+  const handleCheckOut = () => {
+    alert("Thanks for shopping with us!");
+    dispatch(clearCart());
+  };
   return (
-    <div className='h-screen bg-gray-100 pt-20'>
+    <>
+    <div className='pt-20'>
       <h1 className='mb-10 text-center text-2xl font-bold'>Cart Items</h1>
       {cart.length === 0 && (
-        <div className='flex justify-center items-center'>
-          <div className='mt-4 m-1 font-medium py-1 px-2 rounded-md text-yellow-700 bg-yellow-100 border border-yellow-300 '>
+        <div className=' w-4/5  m-auto'>
+          <div className='mt-4 my-10 font-medium py-1 px-2 rounded-md text-yellow-700 bg-yellow-100 border border-yellow-300 '>
             <div className='text-xl font-normal py-2'>
-              Your cart is empty 😔
+              Your cart is empty <Link to='/products' className="text-blue-500 underline hover:text-blue-600">
+                Buy something 
+              </Link>
             </div>
           </div>
         </div>
@@ -74,7 +99,7 @@ const Cart = () => {
                         onClick={() => handleIncrementQuantity(item?.id)}
                         className='cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50'
                         disabled={item?.stock === item?.quantity}
-                      >
+                        >
                         +
                       </button>
                     </div>
@@ -93,27 +118,37 @@ const Cart = () => {
         <div className='mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3'>
           <div className='mb-2 flex justify-between'>
             <p className='text-gray-700'>Subtotal</p>
-            <p className='text-gray-700'>$129.99</p>
+            <p className='text-gray-700'>
+              €{getCartSubTotal()} ({getCartCount()} items)
+            </p>
           </div>
           <div className='flex justify-between'>
             <p className='text-gray-700'>Shipping</p>
-            <p className='text-gray-700'>$4.99</p>
+            <p className='text-gray-700'>
+              {getCartCount() > 0 ? "€10" : "€0"}
+            </p>
           </div>
           <hr className='my-4' />
           <div className='flex justify-between'>
             <p className='text-lg font-bold'>Total</p>
             <div>
-              <p className='mb-1 text-lg font-bold'>$134.98 USD</p>
+              <p className='mb-1 text-lg font-bold'>
+                €{getCartSubTotal() + 10}
+              </p>
               <p className='text-sm text-gray-700'>including VAT</p>
             </div>
           </div>
-          <button className='mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600'>
+          <button
+            onClick={handleCheckOut}
+            className='mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600'
+            >
             Check out
           </button>
         </div>
         {/* Sub total */}
       </div>
     </div>
+            </>
   );
 };
 
