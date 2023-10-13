@@ -170,7 +170,9 @@ const Header = () => {
               </svg>
             )}
 
-            <span className='pl-1 text-gray-500 text-md'>{cart.length}</span>
+            <span className='pl-1 text-gray-500 text-md'>
+              {cart.reduce((acc, item) => acc + item.quantity, 0)}
+              </span>
           </Link>
         </div>
       </header>
