@@ -1,5 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
+import { Card } from "..";
 import { IProduct } from "../../interfaces";
 
 type ProductsProp = {
@@ -18,35 +19,16 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
           <h1 className='text-3xl'>Loading...</h1>
         </div>
       ) : null}
-      <div className='container px-5 py-24 mx-auto'>
-        <div className='flex flex-wrap -m-4'>
-          {products &&
-            products.map((product) => (
-              <Link
-                to={`${redirect}${product.id}`}
-                className='lg:w-1/4 md:w-1/2 p-4 w-full border border-opacity-50 mb-4 cursor-pointer'
-                key={product.id}
-              >
-                <span className='block relative h-48 rounded overflow-hidden'>
-                  <img
-                    alt='ecommerce'
-                    className='object-contain object-center w-full h-full block'
-                    src={product.thumbnail}
-                  />
-                </span>
-                <div className='mt-4'>
-                  <h3 className='text-gray-500 text-xs tracking-widest title-font mb-1'>
-                    {product.category}
-                  </h3>
-                  <h2 className='text-gray-900 title-font text-xl font-medium'>
-                    {product.title}
-                  </h2>
-                  <p className='mt-1 text-md font-semibold'>{product.price}€</p>
-                </div>
-              </Link>
-            ))}
+      <section className='bg-white py-12 text-gray-700 sm:py-16 lg:py-20'>
+        <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
+          <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
+            {products &&
+              products.map((product) => (
+                <Card key={product.id} product={product} redirect={redirect} />
+              ))}
+          </div>
         </div>
-      </div>
+      </section>
     </section>
   );
 };
