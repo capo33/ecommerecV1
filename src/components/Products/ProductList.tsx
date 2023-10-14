@@ -21,7 +21,7 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
       ) : null}
       <section className=''>
         <div className='mx-auto container px-2'>
-          <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
+          <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
             {products &&
               products.map((product) => (
                 <Card key={product.id} product={product} redirect={redirect} />

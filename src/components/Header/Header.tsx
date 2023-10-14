@@ -45,11 +45,13 @@ const Header = () => {
 
   return (
     <header
-      className={`text-gray-600 body-font ${
+      className={`text-gray-600 body-font sticky top-0 ${
         !top && "sticky top-0 bg-white shadow-md z-50"
       }`}
     >
-      <nav className='container m-auto md:flex items-center justify-between bg-white py-4'>
+      <nav
+        className={`container m-auto md:flex items-center justify-between bg-white py-4  `}
+      >
         <div className='flex w-full flex-wrap items-center justify-between px-3'>
           {/* Hamburger icon */}
           <button
@@ -131,11 +133,7 @@ const Header = () => {
           )}
 
           {/* Desktop Menu */}
-          <div
-            className='!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'
-            id='navbarSupportedContent1'
-            data-te-collapse-item
-          >
+          <div className='hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'>
             <Link
               to='/'
               className='flex title-font cursor-pointer font-medium items-center'
