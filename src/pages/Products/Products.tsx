@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-import { ProductList, TitleText } from "../components";
-import { useAppSelector, useAppDispatch } from "../redux/app/store";
-import { getAllProducts } from "../redux/features/product/productSlice";
+import { ProductList, TitleText } from "../../components";
+import { useAppSelector, useAppDispatch } from "../../redux/app/store";
+import { getAllProducts } from "../../redux/features/product/productSlice";
 
 const Products = () => {
   const { allProducts, isLoading } = useAppSelector((state) => state.product);

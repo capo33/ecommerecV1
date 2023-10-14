@@ -6,9 +6,9 @@ import {
   decrementQuantity,
   incrementQuantity,
   clearCart,
-} from "../redux/features/cart/cartSlice";
-import { useAppSelector, useAppDispatch } from "../redux/app/store";
-import Modal from "../components/Modal/Modal";
+} from "../../redux/features/cart/cartSlice";
+import { useAppSelector, useAppDispatch } from "../../redux/app/store";
+import Modal from "../../components/Modal/Modal";
 
 const Cart = () => {
   const { cart } = useAppSelector((state) => state.cart);

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { StarRatings } from "../components";
-import { useAppDispatch, useAppSelector } from "../redux/app/store";
-import { getProductById } from "../redux/features/product/productSlice";
-import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice";
+import { StarRatings } from "../../components";
+import { useAppDispatch, useAppSelector } from "../../redux/app/store";
+import { getProductById } from "../../redux/features/product/productSlice";
+import { addToCart, removeFromCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();

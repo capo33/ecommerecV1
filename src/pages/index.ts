@@ -1,4 +1,5 @@
-export { default as Home } from "./Home";
-export { default as ProductDetails } from "./ProductDetails";
-export { default as Products } from "./Products";
-export { default as CategoryDetail } from "./CategoryDetail";
+export { default as Home } from "./Home/Home";
+export { default as Cart } from "./Cart/Cart";
+export { default as Products } from "./Products/Products";
+export { default as ProductDetails } from "./ProductDetails/ProductDetails";
+export { default as CategoryDetail } from "./CategoryDetail/CategoryDetail";

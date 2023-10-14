@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import { useAppDispatch, useAppSelector } from "../redux/app/store";
-import { getlimitProducts } from "../redux/features/product/productSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/app/store";
+import { getlimitProducts } from "../../redux/features/product/productSlice";
 import {
   Hero,
   ProductList,
@@ -9,7 +9,7 @@ import {
   Footer,
   Categories,
   TitleText,
-} from "../components";
+} from "../../components";
 
 const Home = () => {
   const { isLoading, limitedproducts } = useAppSelector(

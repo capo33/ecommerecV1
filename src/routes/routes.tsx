@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { Home, Products, ProductDetails, CategoryDetail } from "../pages";
-import Cart from "../pages/Cart";
+import Cart from "../pages/Cart/Cart";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
