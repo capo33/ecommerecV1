@@ -6,8 +6,6 @@ import { navigations } from "../../config";
 import { useAppSelector } from "../../redux/app/store";
 
 const Header = () => {
-  console.log(Logo);
-
   const [top, setTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const { cart } = useAppSelector((state) => state.cart);
