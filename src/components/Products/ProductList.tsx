@@ -19,8 +19,8 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
           <h1 className='text-3xl'>Loading...</h1>
         </div>
       ) : null}
-      <section className='bg-white py-12 text-gray-700 sm:py-16 lg:py-20'>
-        <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
+      <section className=''>
+        <div className='mx-auto container px-2'>
           <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
             {products &&
               products.map((product) => (
