@@ -50,7 +50,7 @@ const Header = () => {
       }`}
     >
       <nav
-        className={`container m-auto md:flex items-center justify-between bg-white py-4  `}
+        className={`container m-auto md:flex items-center justify-between bg-white py-4`}
       >
         <div className='flex w-full flex-wrap items-center justify-between px-3'>
           {/* Hamburger icon */}
@@ -133,7 +133,7 @@ const Header = () => {
           )}
 
           {/* Desktop Menu */}
-          <div className='hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'>
+          <div className='hidden justify-between items-center lg:!flex lg:basis-auto '>
             <Link
               to='/'
               className='flex title-font cursor-pointer font-medium items-center'
@@ -153,10 +153,11 @@ const Header = () => {
                 />
               </svg>
 
-              <span className='ml-3 text-left'>ECommerce</span>
             </Link>
+              <span className='ml-3 text-left'>ECommerce</span>
+          </div>
             <ul
-              className='list-style-none mr-auto flex  lg:flex-row'
+              className='hidden list-style-none lg:!flex flex-col lg:flex-row lg:items-center'
               data-te-navbar-nav-ref
             >
               {navigations.map((nav) => (
@@ -170,7 +171,6 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-          </div>
 
           {/* Cart Icon */}
           <div className='relative flex items-center'>
