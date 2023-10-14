@@ -6,7 +6,7 @@ import { FeatureCard } from "..";
 interface CategoriesProps {
   limit?: number;
 }
-const Categories = ({ limit }: CategoriesProps) => {
+const TopCategories = ({ limit }: CategoriesProps) => {
   const { categories } = useAppSelector((state) => state.category);
 
   const dispatch = useAppDispatch();
@@ -18,4 +18,4 @@ const Categories = ({ limit }: CategoriesProps) => {
   return <FeatureCard cards={categories} limit={limit} />;
 };
 
-export default Categories;
+export default TopCategories;
