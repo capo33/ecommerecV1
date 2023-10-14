@@ -2,7 +2,14 @@ import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../redux/app/store";
 import { getlimitProducts } from "../redux/features/product/productSlice";
-import { Hero, ProductList, StarCard, Footer, Categories } from "../components";
+import {
+  Hero,
+  ProductList,
+  StarCard,
+  Footer,
+  Categories,
+  TitleText,
+} from "../components";
 
 const Home = () => {
   const { isLoading, limitedproducts } = useAppSelector(
@@ -18,17 +25,15 @@ const Home = () => {
   return (
     <>
       <Hero />
+
+      <TitleText text1='Categoties' text2='Browse by our top categories' />
       <Categories limit={4} />
-      <div className='flex flex-col text-center w-full mt-20'>
-        <h2 className='text-xs text-indigo-500 tracking-widest font-medium title-font mb-1'>
-          Products
-        </h2>
-        <h1 className='sm:text-3xl text-2xl font-medium title-font text-gray-900'>
-          Most Popular Products
-        </h1>
-      </div>
+
+      <TitleText text1='Products' text2='Most Popular Products' />
       <ProductList products={limitedproducts} isLoading={isLoading} />
+
       <StarCard />
+
       <Footer />
     </>
   );
