@@ -15,7 +15,7 @@ const Products = () => {
 
   return (
     <div>
-      <TitleText text1='product' text2='List of all available products' />
+      <TitleText text2='List of all available products' />
       <ProductList products={allProducts} isLoading={isLoading} />
     </div>
   );

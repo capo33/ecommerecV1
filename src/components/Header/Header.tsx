@@ -155,7 +155,6 @@ const Header = () => {
                 <Link
                   to={nav.path}
                   className='text-neutral-500 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 '
-                  onClick={handleOpen}
                 >
                   <span className='inline-flex justify-center items-center ml-3'>
                     <span className='mr-1'>{nav.icon}</span>
