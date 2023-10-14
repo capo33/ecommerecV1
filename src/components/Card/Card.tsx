@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
-import { IProduct } from "../../interfaces";
+
 import { StarRatings } from "..";
+import { IProduct } from "../../interfaces";
+import { useAppDispatch, useAppSelector } from "../../redux/app/store";
+import { addToCart } from "../../redux/features/cart/cartSlice";
 
 interface CardProps {
   product: IProduct;
   redirect: string;
 }
 const Card: React.FC<CardProps> = ({ product, redirect }) => {
+  const {cart} = useAppSelector((state) => state.cart);
+
+  const dispatch = useAppDispatch();
+
   return (
     <div className='m-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
       <Link to={`${redirect}${product.id}`} key={product.id}>
@@ -33,7 +40,11 @@ const Card: React.FC<CardProps> = ({ product, redirect }) => {
           </span>
         </div>
       </div>
-      <button className='group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600'>
+      <button
+        className='group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600'
+        onClick={() => dispatch(addToCart(product))}
+        disabled={cart.some((item) => item.id === product.id)}
+      >
         <div className='flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-blue-600 group-hover:text-white'>
           Add
         </div>
