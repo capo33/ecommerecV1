@@ -5,7 +5,7 @@ interface TitleTextProps {
 
 const TitleText: React.FC<TitleTextProps> = ({ text1, text2 }) => {
   return (
-    <div className='flex flex-col text-center w-full mb-10'>
+    <section className='flex flex-col text-center w-full mb-10'>
       <div className='flex flex-col text-center w-full mt-20'>
         <h2 className='text-lg text-indigo-800 tracking-widest font-medium title-font mb-1 u'>
           {text1}
@@ -14,7 +14,7 @@ const TitleText: React.FC<TitleTextProps> = ({ text1, text2 }) => {
           {text2}
         </h1>
       </div>
-    </div>
+    </section>
   );
 };
 
