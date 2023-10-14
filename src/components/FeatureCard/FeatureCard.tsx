@@ -15,17 +15,16 @@ const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
 
   return (
     <section className='text-gray-600 body-font'>
-      <div className='container px-5 py-24 mx-auto'>
-        <div className='flex flex-col text-center w-full mb-20'>
+      <div className='container px-5  mx-auto'>3
+        <div className='flex flex-col text-center w-full mb-10'>
           <TitleText text1='Categoties' text2='Browse by our top categories' />
         </div>
-        <div className='flex flex-wrap -m-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-4'>
           {cards
             ?.map((card, index) => (
-              <div className='p-4 md:w-1/3' key={index}>
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col'>
+                 <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col' key={index}>
                   <div className='flex items-center mb-3'>
-                    <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0'>
+                    <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-800 text-white flex-shrink-0'>
                       <svg
                         fill='none'
                         stroke='currentColor'
@@ -62,8 +61,7 @@ const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
                     </Link>
                   </div>
                 </div>
-              </div>
-            ))
+             ))
             .slice(0, limit)}
         </div>
       </div>
