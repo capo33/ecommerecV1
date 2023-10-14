@@ -29,7 +29,7 @@ const Home = () => {
       <TitleText text1='Categoties' text2='Browse by our top categories' />
       <Categories limit={4} />
 
-      <TitleText text1='Products' text2='Most Popular Products' />
+      <TitleText text1='Products' text2='Browse by our top products' />
       <ProductList products={limitedproducts} isLoading={isLoading} />
 
       <StarCard />
