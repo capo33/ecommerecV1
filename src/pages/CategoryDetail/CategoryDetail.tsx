@@ -7,7 +7,7 @@ import { ProductList } from "../../components";
 const CategoryDetail = () => {
   const { name } = useParams<{ name: string }>();
   const { category, isLoading } = useAppSelector((state) => state.category);
-  console.log(category?.products);
+  console.log(category);
 
   const dispatch = useAppDispatch();
 
@@ -18,7 +18,7 @@ const CategoryDetail = () => {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-  return <ProductList products={category?.products} isLoading={isLoading} />;
+  return <h1>Lol</h1>;
 };
 
 export default CategoryDetail;

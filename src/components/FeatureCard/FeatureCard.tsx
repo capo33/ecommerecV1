@@ -1,19 +1,15 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ICategory } from "../../interfaces";
 
 interface IFeatureCardProps {
   cards: ICategory[];
   limit?: number;
-  redirect?: boolean;
+  isRedirect?: boolean;
 }
 
-const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
+const FeatureCard = ({ cards, limit, isRedirect }: IFeatureCardProps) => {
   console.log(cards);
-  
-  const { search } = useLocation();
-
-  const redirect = search ? search.split("=")[1] : "/categories/";
 
   return (
     <section className='text-gray-600 body-font'>
@@ -39,28 +35,30 @@ const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
                       <path d='M22 12h-4l-3 9L9 3l-3 9H2' />
                     </svg>
                   </div>
-                   <h2 className='text-gray-900 text-lg title-font font-medium'>
+                  <h2 className='text-gray-900 text-lg title-font font-medium'>
                     {card}
                   </h2>
                 </div>
                 <div className='flex-grow'>
-                  <Link
-                    to={`${redirect}${card}`}
-                    className='mt-3 text-indigo-500 inline-flex items-center cursor-pointer hover:text-gray-900'
-                  >
-                    Learn More
-                    <svg
-                      fill='none'
-                      stroke='currentColor'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      className='w-4 h-4 ml-2'
-                      viewBox='0 0 24 24'
+                  {isRedirect && (
+                    <Link
+                      to={"/categories/" + card}
+                      className='mt-3 text-indigo-500 inline-flex items-center cursor-pointer hover:text-gray-900'
                     >
-                      <path d='M5 12h14M12 5l7 7-7 7' />
-                    </svg>
-                  </Link>
+                      Learn More
+                      <svg
+                        fill='none'
+                        stroke='currentColor'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        className='w-4 h-4 ml-2'
+                        viewBox='0 0 24 24'
+                      >
+                        <path d='M5 12h14M12 5l7 7-7 7' />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </div>
             ))
