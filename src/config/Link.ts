@@ -10,6 +10,11 @@ const navigations = [
     icon: 'products'
   },
   {
+    name: 'Categories',
+    path: '/categories',
+    icon: 'cart'
+  },
+  {
     name: 'About',
     path: '/about',
     icon: 'info'
