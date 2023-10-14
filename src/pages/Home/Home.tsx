@@ -5,7 +5,6 @@ import { getlimitProducts } from "../../redux/features/product/productSlice";
 import {
   Hero,
   ProductList,
-  StarCard,
   Footer,
   TopCategories,
   TitleText,
@@ -26,13 +25,12 @@ const Home = () => {
     <>
       <Hero />
 
-      <TitleText text1='Categoties' text2='Browse by our top categories' />
+      <TitleText text2='Browse by our top categories' />
       <TopCategories limit={4} />
 
-      <TitleText text1='Products' text2='Browse by our top products' />
+      <TitleText text2='Browse by our top products' />
       <ProductList products={limitedproducts} isLoading={isLoading} />
 
-      <StarCard />
       <Footer />
     </>
   );

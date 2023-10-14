@@ -2,7 +2,6 @@ export { default as Hero } from "./Hero/Hero";
 export { default as Card } from "./Card/Card";
 export { default as Header } from "./Header/Header";
 export { default as Footer } from "./Footer/Footer";
-export { default as StarCard } from "./StarCard/StarCard";
 export { default as TitleText } from "./TitleText/TitleText";
 export { default as ProductList } from "./Products/ProductList";
 export { default as TopCategories } from "./TopCategories/TopCategories";

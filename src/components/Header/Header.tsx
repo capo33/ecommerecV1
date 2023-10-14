@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Logo from "../../assets/logo.svg";
 import { navigations } from "../../config";
 import { useAppSelector } from "../../redux/app/store";
 
 const Header = () => {
+  console.log(Logo);
+
   const [top, setTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const { cart } = useAppSelector((state) => state.cart);
@@ -105,7 +108,7 @@ const Header = () => {
                     to='/'
                     className='flex title-font font-medium items-center text-gray-900'
                   >
-                    <span className='ml-3'>ECommerce</span>
+                    <span className='ml-3 text-left text-xl'>ECommerce</span>
                   </Link>
                 </div>
                 <div className='overflow-y-auto overflow-x-hidden flex-grow'>
@@ -120,10 +123,8 @@ const Header = () => {
                           className='flex p-10 items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6'
                           onClick={handleOpen}
                         >
-                          <span className='inline-flex justify-center items-center ml-4'>
-                            {nav.icon}
-                          </span>
-                          <span className='ml-2 text-sm tracking-wide truncate'>
+                          <span className='inline-flex justify-center items-center ml-3'>
+                            <span className='mr-1'>{nav.icon}</span>
                             {nav.name}
                           </span>
                         </Link>
@@ -141,34 +142,27 @@ const Header = () => {
               to='/'
               className='flex title-font cursor-pointer font-medium items-center'
             >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={1.5}
-                stroke='currentColor'
-                className='w-10 h-10 text-white p-2 bg-indigo-500 rounded-full'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z'
-                />
-              </svg>
+              <img src={Logo} alt='logo' className='w-6 h-6' />
             </Link>
-            <span className='ml-3 text-left'>ECommerce</span>
+            <span className='ml-3 text-left text-xl font-semibold'>
+              ECommerce
+            </span>
           </div>
           <ul
             className='hidden list-style-none lg:!flex flex-col lg:flex-row lg:items-center'
             data-te-navbar-nav-ref
           >
             {navigations.map((nav) => (
-              <li className='text-gl lg:ml-3' key={nav.path}>
+              <li className='text-lg lg:ml-3' key={nav.path}>
                 <Link
                   to={nav.path}
                   className='text-neutral-500 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 '
+                  onClick={handleOpen}
                 >
-                  {nav.name}
+                  <span className='inline-flex justify-center items-center ml-3'>
+                    <span className='mr-1'>{nav.icon}</span>
+                    {nav.name}
+                  </span>
                 </Link>
               </li>
             ))}
