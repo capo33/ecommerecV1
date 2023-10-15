@@ -13,22 +13,20 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
   const redirect = search ? search.split("=")[1] : "/products/";
 
   return (
-    <section className='text-gray-600 body-font'>
+    <section className='text-gray-600 body-font bg-zinc-100'>
       {isLoading ? (
         <div className='flex justify-center items-center h-screen'>
           <h1 className='text-3xl'>Loading...</h1>
         </div>
       ) : null}
-      <section className=''>
-        <div className='mx-auto container px-2'>
-          <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
-            {products &&
-              products.map((product) => (
-                <Card key={product.id} product={product} redirect={redirect} />
-              ))}
-          </div>
+      <div className='m-auto container px-2 pb-10'>
+        <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
+          {products &&
+            products.map((product) => (
+              <Card key={product.id} product={product} redirect={redirect} />
+            ))}
         </div>
-      </section>
+      </div>
     </section>
   );
 };

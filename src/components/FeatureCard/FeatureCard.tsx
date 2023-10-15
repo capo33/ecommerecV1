@@ -17,7 +17,7 @@ const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
           {cards
             ?.map((card, index) => (
               <div
-                className='flex rounded-lg h-full bg-gray-100 p-8 flex-col'
+                className='flex rounded-lg h-full bg-gray-300 p-8 flex-col'
                 key={index}
               >
                 <h2 className='text-gray-900 text-lg title-font font-medium flex items-center'>
@@ -26,7 +26,7 @@ const FeatureCard = ({ cards, limit }: IFeatureCardProps) => {
                 <div className='flex-grow'>
                   <Link
                     to={`/categories/${card}`}
-                    className=' text-indigo-500 inline-flex items-center cursor-pointer hover:text-gray-900'
+                    className='inline-flex items-center cursor-pointer hover:text-gray-900'
                   >
                     View
                     <svg

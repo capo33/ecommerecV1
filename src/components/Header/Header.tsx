@@ -47,11 +47,11 @@ const Header = () => {
   return (
     <header
       className={`text-gray-600 body-font sticky top-0 ${
-        !top && "sticky top-0 bg-white shadow-md z-50"
+        !top && "sticky top-0 bg-zinc-100 shadow-md z-50"
       }`}
     >
       <nav
-        className={`container m-auto md:flex items-center justify-between bg-white py-4`}
+        className={`container m-auto md:flex items-center justify-between bg-zinc-100 py-4`}
       >
         <div className='flex w-full flex-wrap items-center justify-between px-3'>
           {/* Hamburger icon */}

@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { Home, Products, ProductDetails, CategoryDetail } from "../pages";
+import { Home, Products, ProductDetails, CategoryDetail, Contact } from "../pages";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
 
@@ -14,6 +14,7 @@ const routes = createBrowserRouter(
       <Route path='' element={<Home />} />
       <Route path='cart' element={<Cart />} />
       <Route path='products' element={<Products />} />
+      <Route path='contact' element={<Contact />} />
       <Route path='categories' element={<Categories />} />
       <Route path='products/:id' element={<ProductDetails />} />
       <Route path='categories/:name' element={<CategoryDetail />} />

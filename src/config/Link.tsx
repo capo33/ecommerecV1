@@ -60,8 +60,8 @@ const navigations = [
     ),
   },
   {
-    name: "About",
-    path: "/about",
+    name: "Contact",
+    path: "/contact",
     icon: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
