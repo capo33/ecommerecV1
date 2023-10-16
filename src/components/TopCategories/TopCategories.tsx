@@ -7,7 +7,7 @@ interface CategoriesProps {
   limit?: number;
 }
 const TopCategories = ({ limit }: CategoriesProps) => {
-  const { categories } = useAppSelector((state) => state.category);
+  const { categories, isLoading } = useAppSelector((state) => state.category);
 
   const dispatch = useAppDispatch();
 
@@ -15,7 +15,7 @@ const TopCategories = ({ limit }: CategoriesProps) => {
     dispatch(getCategories());
   }, [dispatch]);
 
-  return <FeatureCard cards={categories} limit={limit} />;
+  return <FeatureCard cards={categories} limit={limit} isLoading={isLoading} />;
 };
 
 export default TopCategories;

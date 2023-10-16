@@ -9,7 +9,7 @@ interface IFeatureCardProps {
   isLoading?: boolean;
 }
 
-const FeatureCard = ({ cards, limit ,isLoading}: IFeatureCardProps) => {
+const FeatureCard = ({ cards, limit, isLoading }: IFeatureCardProps) => {
   return (
     <section className='text-gray-600 body-font'>
       {isLoading ? <Loading /> : null}
