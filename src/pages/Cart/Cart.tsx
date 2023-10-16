@@ -45,26 +45,14 @@ const Cart = () => {
   };
 
   return (
-    <div className='pt-10'>
-      {cart.length === 0 && (
-        <div className=' w-4/5  m-auto'>
-          <div className='mt-4 my-10 font-medium py-1 px-2 rounded-md  bg-yellow-100 border border-yellow-300 '>
-            <div className='text-xl font-normal py-2'>
-              Your cart is empty{" "}
-              <Link
-                to='/products'
-                className='text-blue-500 underline hover:text-blue-600'
-              >
-                Buy something
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+    <section className='h-screen bg-gray-100 pt-20'>
+      <h2 className='mb-10 text-center text-3xl font-bold'>
+        Your shopping cart
+      </h2>
+
       <div className='mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0'>
         <div className='rounded-lg md:w-2/3'>
-          {cart &&
-            cart.length > 0 &&
+          {cart && cart.length > 0 ? (
             cart.map((item) => (
               <div
                 className='justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start'
@@ -118,7 +106,20 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div className='font-medium py-1 rounded-md bg-red-100 border '>
+              <div className='text-xl py-2 justify-center flex  '>
+                Your cart is empty
+                <Link
+                  to='/products'
+                  className='text-blue-500 underline hover:text-blue-600 px-2'
+                >
+                  Buy something
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className='mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3'>
@@ -157,7 +158,7 @@ const Cart = () => {
 
         {modalOn && <Modal setModalOn={setModalOn} />}
       </div>
-    </div>
+    </section>
   );
 };
 
