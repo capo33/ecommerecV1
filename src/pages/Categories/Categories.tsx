@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/app/store";
 import { getCategories } from "../../redux/features/category/categorySlice";
 
 const Categories = () => {
-  const { categories } = useAppSelector((state) => state.category);
+  const { categories,isLoading  } = useAppSelector((state) => state.category);
 
   const dispatch = useAppDispatch();
 
@@ -16,7 +16,7 @@ const Categories = () => {
   return (
     <div className='mb-12 bg-zinc-100'>
       <TitleText text2='List of all available categories' />
-      <FeatureCard cards={categories} />
+      <FeatureCard cards={categories} isLoading={isLoading} />
     </div>
   );
 };
