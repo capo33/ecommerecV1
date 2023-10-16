@@ -22,7 +22,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className='bg-zinc-100'>
+    <div className="bg-zinc-100">
       <Hero />
 
       <TitleText text2='Browse by our top categories' />

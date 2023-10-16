@@ -6,9 +6,10 @@ import { IProduct } from "../../interfaces";
 type ProductsProp = {
   products: IProduct[] | undefined;
   isLoading: boolean;
+  limit?: number;
 };
 
-const ProductList = ({ products, isLoading }: ProductsProp) => {
+const ProductList = ({ products, isLoading, limit }: ProductsProp) => {
   const { search } = useLocation();
   const redirect = search ? search.split("=")[1] : "/products/";
 
@@ -22,9 +23,11 @@ const ProductList = ({ products, isLoading }: ProductsProp) => {
       <div className='m-auto container px-2 pb-10'>
         <div className='mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:mt-16'>
           {products &&
-            products.map((product) => (
-              <Card key={product.id} product={product} redirect={redirect} />
-            ))}
+            products
+              ?.map((product) => (
+                <Card key={product.id} product={product} redirect={redirect} />
+              ))
+              .slice(0, limit)}
         </div>
       </div>
     </section>
