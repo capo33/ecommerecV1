@@ -11,6 +11,7 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({ product, redirect }) => {
   const { cart } = useAppSelector((state) => state.cart);
+  console.log("product.thumbnail", product.thumbnail);
 
   const dispatch = useAppDispatch();
 
@@ -19,8 +20,9 @@ const Card: React.FC<CardProps> = ({ product, redirect }) => {
       <Link to={`${redirect}${product.id}`} key={product.id}>
         <img
           className='p-8 object-contain h-64 w-auto mx-auto'
-          src={product.thumbnail}
-          alt={product.title}
+          src={product?.thumbnail}
+          alt={product?.title}
+          loading='lazy'
         />
       </Link>
       <div className='px-5 pb-5'>

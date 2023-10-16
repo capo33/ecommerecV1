@@ -3,6 +3,7 @@ export { default as Card } from "./Card/Card";
 export { default as Header } from "./Header/Header";
 export { default as Footer } from "./Footer/Footer";
 export { default as TitleText } from "./TitleText/TitleText";
+export { default as Pagination } from "./Pagination/Pagination";
 export { default as ProductList } from "./Products/ProductList";
 export { default as ContactCard } from "./ContactCard/ContactCard";
 export { default as FeatureCard } from "./FeatureCard/FeatureCard";
