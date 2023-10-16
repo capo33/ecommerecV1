@@ -1,6 +1,25 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 
+interface IFakeLinks {
+  name: string;
+}
+const FakeLinks = ({ name }: IFakeLinks) => {
+  return (
+    <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
+      <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
+        {name}
+      </h2>
+      <nav className='list-none mb-10'>
+        <li className='text-gray-600 hover:text-gray-800'>First Link</li>
+        <li className='text-gray-600 hover:text-gray-800'>Second Link</li>
+        <li className='text-gray-600 hover:text-gray-800'>Third Link</li>
+        <li className='text-gray-600 hover:text-gray-800'>Fourth Link</li>
+      </nav>
+    </div>
+  );
+};
+
 const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
@@ -19,50 +38,10 @@ const Footer = () => {
           </p>
         </div>
         <div className='flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center'>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li className='text-gray-600 hover:text-gray-800'>First Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Second Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Third Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Fourth Link</li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li className='text-gray-600 hover:text-gray-800'>First Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Second Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Third Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Fourth Link</li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li className='text-gray-600 hover:text-gray-800'>First Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Second Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Third Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Fourth Link</li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li className='text-gray-600 hover:text-gray-800'>First Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Second Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Third Link</li>
-              <li className='text-gray-600 hover:text-gray-800'>Fourth Link</li>
-            </nav>
-          </div>
+          <FakeLinks name='HOME' />
+          <FakeLinks name='PRODUCTS' />
+          <FakeLinks name='CATEGORIES' />
+          <FakeLinks name='CONTACT' />
         </div>
       </div>
       <div className='bg-gray-100'>
