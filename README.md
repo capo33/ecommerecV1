@@ -53,19 +53,21 @@ https://ecommerce-shop-v1.netlify.app/
  
 ## Tech stack
 
-- [React]
+- [Vite]
 - [Redux]
-- [Redux-Toolkit]
 - [Typescript]
+- [Redux-Toolkit]
+- [GitHub-Actions]
 
 ## Styles
 
 - [Tailwind-CSS]
 - [Hero-Icons]
 
-[React]: https://mui.com/
+[Vite]: https://vitejs.dev/guide/
 [Redux]: https://redux.js.org/tutorials/typescript-quick-start/
-[Redux-Toolkit]: https://redux-toolkit.js.org/
 [Typescript]: https://www.typescriptlang.org/
+[Redux-Toolkit]: https://redux-toolkit.js.org/
+[GitHub-Actions]: https://github.com/features/action/
 [Tailwind-CSS]: https://tailwindcss.com/
 [Hero-Icons]: https://heroicons.com/
